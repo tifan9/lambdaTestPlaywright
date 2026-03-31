@@ -13,5 +13,6 @@ public class FirstTest {
         Page page = browser.newPage();
         page.navigate("https://google.com");
         System.out.println("Test this part");
+        System.out.println("New debug line");
     }
 }
