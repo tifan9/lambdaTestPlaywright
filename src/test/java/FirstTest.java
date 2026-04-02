@@ -1,18 +1,21 @@
-import com.microsoft.playwright.Browser;
-import com.microsoft.playwright.BrowserType;
-import com.microsoft.playwright.Page;
-import com.microsoft.playwright.Playwright;
+import com.microsoft.playwright.*;
 import org.junit.jupiter.api.Test;
 
-public class FirstTest {
+import java.util.Arrays;
+
+public class FirstTest extends Runner{
     @Test
-    public void firstTest(){
-        System.out.println("Test this part");
-        Playwright playwright = Playwright.create();
-        Browser browser = playwright.chromium().launch(new BrowserType.LaunchOptions().setHeadless(false));
-        Page page = browser.newPage();
-        page.navigate("https://google.com");
-        System.out.println("Test this part");
-        System.out.println("New debug line");
+    public void firstTest() {
+        page.navigate("https://www.bestbuy.com/?intl=nosplash");
+        //store the locator definition
+        Locator locator =  page.locator("//li//a[text()=\"Deal of the Day\"]");
+        Locator menuItems = page.locator(".bottom-nav-left li a");
+        for(int i =0; i < menuItems.count(); i++)
+            System.out.println(menuItems.nth(i).textContent());
+//            System.out.println(menuItems.allTextContents());
+            //pass a filter to identify a certain element in the list
+        page.locator("ul.bottom-nav-left li a", new Page.LocatorOptions().setHasText("Deal of the Day")).click();
+
+        System.out.println();
     }
 }
