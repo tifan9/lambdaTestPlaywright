@@ -10,8 +10,7 @@ public class SignupTest extends Runner{
     @Test
     public void signupTest(){
         page.navigate("https://www.bestbuy.com/?intl=nosplash");
-        page.locator("button[data-lid='hdr_signin']").click();
-        page.locator("//button//span[text()='Create Account']").click();
+        accountNavigationPage.navigateTo("Create Account");
         createAccountPage.createAccount();
         System.out.println();
     }

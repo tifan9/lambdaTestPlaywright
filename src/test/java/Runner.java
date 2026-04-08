@@ -2,6 +2,7 @@ import com.microsoft.playwright.*;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
+import pages.AccountNavigationPage;
 import pages.CreateAccountPage;
 
 import java.util.Arrays;
@@ -12,6 +13,7 @@ public class Runner {
     protected Browser browser;
     protected static Playwright playwright;
     protected CreateAccountPage createAccountPage;
+    protected AccountNavigationPage accountNavigationPage;
     @BeforeAll
     public static void init(){
         playwright = Playwright.create();
@@ -22,7 +24,7 @@ public class Runner {
         // this works as incognito mode to avoid having cookies in the browser
         browserContext = browser.newContext(new Browser.NewContextOptions().setPermissions(Arrays.asList("geolocation")));
         page = browserContext.newPage();
-
+        accountNavigationPage = new AccountNavigationPage(page);
         createAccountPage = new CreateAccountPage(page);
     }
     @AfterEach
