@@ -6,7 +6,7 @@ import java.util.Arrays;
 public class FirstTest extends Runner{
     @Test
     public void firstTest() {
-        page.navigate("https://www.bestbuy.com/?intl=nosplash");
+        page.navigate(getProperty("url"));
         //store the locator definition
         Locator locator =  page.locator("//li//a[text()=\"Deal of the Day\"]");
         Locator menuItems = page.locator(".bottom-nav-left li a");

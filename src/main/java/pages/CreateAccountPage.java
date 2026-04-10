@@ -7,14 +7,14 @@ import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertTha
 
 public class CreateAccountPage {
     private final Page createAccountPage;
-    private static final String FIRST_NAME= "input#firstName";
-    private static final String LAST_NAME= "input#lastName";
-    private static final String EMAIL= "input#email";
-    private static final String PASSWORD= "input#fld-p1";
-    private static final String CONFIRM_PASSWORD= "input#reenterPassword";
+    private static final String FIRST_NAME= "#firstName";
+    private static final String LAST_NAME= "#lastName";
+    private static final String EMAIL= "#email";
+    private static final String PASSWORD= "#fld-p1";
+    private static final String CONFIRM_PASSWORD= "#reenterPassword";
     private static final String PASSWORD_VALIDATION = "span.c-input-error-message";
-    private static final String PHONE= "input#phone";
-    private static final String CHECK= "input#is-recovery-phone";
+    private static final String PHONE= "#phone";
+    private static final String CHECK= "#is-recovery-phone";
     public static final String SUBMIT_BUTTON = "button[type='submit']";
     public CreateAccountPage(Page page) {
         this.createAccountPage = page;
